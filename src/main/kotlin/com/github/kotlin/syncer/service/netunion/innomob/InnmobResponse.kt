@@ -2,44 +2,44 @@ package com.github.kotlin.syncer.service.netunion.innomob
 
 
 data class InnomobResponse(
-  var code: Int = 0,
-  var message: String,
-  var current: Int = 0,
-  var page: Int = 0,
-  var isNext_page: Boolean = false,
-  var total_pages: Int = 0,
-  var data: List<Item>
+  val code: Int = 0,
+  val message: String,
+  val current: Int = 0,
+  val page: Int = 0,
+  val isNext_page: Boolean = false,
+  val total_pages: Int = 0,
+  val data: List<Item>
 )
 
 data class Item(
-  var app_category: String,
-  var app_desc: String,
-  var app_min_ver: String,
-  var app_name: String,
-  var app_pack_name: String,
-  var black_subs: List<String>,
-  var cap_daily: Int = 0,
-  var click_url: String,
-  var conv_flow: String,
-  var countries: List<String>,
-  var currency: String,
-  var d_type: String,
-  var desc: String,
-  var icons: List<String>,
-  var id: Int = 0,
-  var images: List<Image>,
-  var incentive: String,
-  var name: String,
-  var need_deviceid: String,
-  var os: String,
-  var payout: Double = 0.toDouble(),
-  var payout_type: String,
-  var preview_url: String,
-  var r_cap_daily: Int = 0
+  val app_category: String?,
+  val app_desc: String?,
+  val app_min_ver: String?,
+  val app_name: String?,
+  val app_pack_name: String?,
+  val black_subs: List<String>?,
+  val cap_daily: Int = 0,
+
+  val click_url: String?,
+  val conv_flow: String?,
+  val countries: List<String>?,
+  val currency: String?,
+  val d_type: String?,
+  val desc: String?,
+  val icons: List<String>?,
+  val id: Int = 0,
+  val images: List<Image>?,
+  val incentive: String?,
+  val name: String?,
+  val need_deviceid: String?,
+  val os: String?,
+  val payout: Double = 0.toDouble(),
+  val payout_type: String?,
+  val preview_url: String?,
+  val r_cap_daily: Int = 0
 )
 
-
 data class Image(
-  var pixel: String,
-  var url: String
+  val pixel: String,
+  val url: String
 )

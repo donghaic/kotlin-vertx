@@ -1,10 +1,10 @@
 package com.github.kotlin.syncer.service.filter.impl
 
-import com.github.kotlin.syncer.bean.NetunionOffer
+import com.github.grpc.push_offer.PushOffer
 import com.github.kotlin.syncer.service.filter.IOfferFilter
 
 class PackageFilter : IOfferFilter {
-  override fun isSkip(offer: NetunionOffer): Boolean {
+  override fun isSkip(offer: PushOffer.NetunionOffer): Boolean {
     TODO("not implemented")
   }
 }

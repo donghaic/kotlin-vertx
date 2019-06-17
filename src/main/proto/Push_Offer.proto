@@ -1,0 +1,97 @@
+syntax = "proto3";
+//to 伍洋
+package com.github.grpc.push_offer;
+
+//netunion订单实体类
+message NetunionOffer {
+    string category = 1;//分类
+    repeated string countries = 2;//国家
+    int32 dayCap = 3;//cap
+    string description = 4;//描述
+    string icon = 5;//图标
+    repeated string images = 6;//图片数组
+    int32 incent = 7;//激励
+    string kpi = 8;//kpi
+    string minOsv = 9;//最低版本
+    string name = 10;//订单名称
+    string nettrackLink = 11;//网盟上报地址
+    int32 netunionId = 12;//网盟id
+    string netunionName = 13;//网盟名称
+    string offerId = 14;//订单id
+    string packageName = 15;//包名
+    string platform = 16;//平台(ios,android)
+    string previewUrl = 17;//预览url
+    double price = 19;//单价
+    string uniqueId = 20;//唯一id,推单不用
+    string trackLink = 21;//追踪连接,推单不用
+    string trackLinkRep = 22;//追踪连接替换channel后,推单不用
+    uint32 requireDeviceid = 23;//是否需要设备id,0:不需要,1:需要
+    string payoutType = 24;//支付类型
+    string salesId = 25;//销售id
+    string salesName = 26;//销售名称
+    string operatorId = 27;//运营id
+    string operatorName = 28;//运营名称
+}
+
+//推送网盟订单请求
+message PushNetunionOfferRequest {
+    int32 netunion_id = 1;
+    repeated NetunionOffer offers = 2;
+    string version = 3;
+}
+
+//推送订单检测请求
+//message PushOfferDetectionRequest {
+//    repeated OfferDetectResult detectResults = 1;
+//}
+//
+////订单检测结果
+//message OfferDetectResult {
+//    string offer_id = 1;
+//    int32 redirection_count = 2;
+//    bool is_detect_successful = 3;
+//    string netunion_id = 4;
+//}
+
+//推送网盟订单回应
+message PushNetunionOfferResponse {
+    uint64 timestamp = 1;
+    int32 code = 2;
+    string message = 3;
+    string version = 4;
+}
+
+////推送网盟订单探测回应
+//message PushOfferDetectionResponse {
+//    uint64 timestamp = 1;
+//    int32 code = 2;
+//    string message = 3;
+//}
+
+message DataRequest {
+    uint32 DataType = 1;
+    string Data = 2;
+    string version = 3;
+}
+
+message DataResponse {
+    uint64 timestamp = 1;
+    int32 code = 2;
+    string message = 3;
+    string version = 4;
+}
+
+//订单推送服务
+service NetunionOfferPusher {
+    //推送订单
+    rpc PushNetunionOffer (PushNetunionOfferRequest) returns (PushNetunionOfferResponse) {
+    }
+
+    //推送数据
+    rpc PushData (DataRequest) returns (DataResponse) {
+
+    }
+    //推送订单探测结果
+    //    rpc PushNetunionOfferDetection (PushOfferDetectionRequest) returns (PushOfferDetectionResponse) {
+    //    }
+}

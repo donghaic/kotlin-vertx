@@ -1,8 +1,8 @@
 package com.github.kotlin.syncer.service.filter
 
-import com.github.kotlin.syncer.bean.NetunionOffer
+import com.github.grpc.push_offer.PushOffer
 
 interface IOfferFilter {
-  
-  fun isSkip(offer: NetunionOffer): Boolean
+
+  fun isSkip(offer: PushOffer.NetunionOffer): Boolean
 }
