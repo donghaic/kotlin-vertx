@@ -6,6 +6,6 @@ import com.github.kotlin.syncer.service.filter.IOfferFilter
 class PriceFilter : IOfferFilter {
 
   override fun isSkip(offer: PushOffer.NetunionOffer): Boolean {
-    TODO("not implemented")
+    return false
   }
 }

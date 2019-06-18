@@ -5,6 +5,6 @@ import com.github.kotlin.syncer.service.filter.IOfferFilter
 
 class FieldsCheckFilter : IOfferFilter {
   override fun isSkip(offer: PushOffer.NetunionOffer): Boolean {
-    TODO("not implemented") // TODO
+    return false
   }
 }

@@ -9,12 +9,9 @@ import io.vertx.core.json.JsonObject
 class MainModule(val vertx: Vertx) : KotlinModule() {
   override fun configure() {
     val config = vertx.orCreateContext.config()
-    install { binder -> bind(Vertx::class.java).toInstance(vertx) }
     bind(JsonObject::class.java).toInstance(config)
-
+    bind(Vertx::class.java).toInstance(vertx)
     install(FilterModule())
     install(NetUnionModule())
-
-
   }
 }
