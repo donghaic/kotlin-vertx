@@ -13,5 +13,6 @@ class MainModule(val vertx: Vertx) : KotlinModule() {
     bind(Vertx::class.java).toInstance(vertx)
     install(FilterModule())
     install(NetUnionModule())
+    install(RedisModule(vertx, config))
   }
 }

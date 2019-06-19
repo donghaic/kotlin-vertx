@@ -18,7 +18,7 @@ import javax.inject.Inject
 class MainVerticle : CoroutineVerticle() {
   private val logger = KotlinLogging.logger { }
 
-  val interval_time = 1 * 60 * 1000L
+  private val interval_time = 1 * 60 * 1000L
 
   @Inject
   lateinit var exchangeServcice: ExchangeServcice
@@ -49,9 +49,9 @@ class MainVerticle : CoroutineVerticle() {
     }
 
     // Start the server
-    vertx.createHttpServer()
+    val listenAwait = vertx.createHttpServer()
       .requestHandler(router)
       .listenAwait(config.getInteger("http.port", 8080))
-    logger.info { "start on port 8080" }
+    logger.info { "start on port  ${listenAwait.actualPort()}" }
   }
 }

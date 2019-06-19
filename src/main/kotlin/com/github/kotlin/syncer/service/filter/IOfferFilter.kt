@@ -4,5 +4,5 @@ import com.github.grpc.push_offer.PushOffer
 
 interface IOfferFilter {
 
-  fun isSkip(offer: PushOffer.NetunionOffer): Boolean
+  suspend fun isSkip(offer: PushOffer.NetunionOffer): Boolean
 }

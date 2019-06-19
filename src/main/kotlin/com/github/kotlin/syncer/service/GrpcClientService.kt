@@ -29,9 +29,6 @@ class GrpcClientService {
       .build()
   }
 
-  init {
-
-  }
 
   fun send(offerList: List<PushOffer.NetunionOffer>, netunionId: Int) {
     if (offerList.isEmpty()) {

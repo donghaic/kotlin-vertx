@@ -27,7 +27,7 @@ class ExchangeServcice @Inject constructor(
     }
   }
 
-  private fun doFilter(originList: List<PushOffer.NetunionOffer>): List<PushOffer.NetunionOffer> {
+  private suspend fun doFilter(originList: List<PushOffer.NetunionOffer>): List<PushOffer.NetunionOffer> {
     val result = Lists.newArrayList<PushOffer.NetunionOffer>()
     for (netunionOffer in originList) {
       if (!filter.isSkip(netunionOffer)) {
